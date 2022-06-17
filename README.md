@@ -1,7 +1,7 @@
 # regex-examples
 regex  examples
 
-String word="u";
+		String word="u";
 		String str="uzun yoldan gelen uzun adamın dramını uzunca bir vakit izledik.";
 		Pattern pattern = Pattern.compile(word);
 		Matcher mach = pattern.matcher(str);
