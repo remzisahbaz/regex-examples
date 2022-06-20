@@ -1,6 +1,20 @@
 # regex-examples
 regex  examples
 
+	^	start of the string or negation symbol				^a matches at the start of the stringa
+	.	matches any single character except the newline			a.[0-9] matches string that has an followed by a character and a digitaa
+	[]	Bracket expression that matches a single character contained within the brackets	[a-c] equals to either or or , i.e., also abca\|b\|c[abc]
+	[^]	matches a single character not contained in the brackets	[^abc] matches any character other than , , or abc
+	$	end of the line	^abc$ matches a string that starts and ends with abc
+	()	grouping characters						(ab)\1 matches abab
+	*	Matches the preceding element or zero or more times		ab*c matches , , , etc.acabcabbbc
+	{m,n}	Matches the preceding element at least m times and not more than n times	a{3,5} matches , , aaaaaaaaaaaa
+	?	Matches the preceding element zero or one time	ab?c matches , acabc
+	+	Matches the preceding element one or more times	ab+c matches , , , etc., but not abcabbcabbbcac
+	\|	the choice operator, it matches either the expression before or expression after the operator \|	ab\|def matches either or abdef
+	\	Escape or backslash	common escape sequences like or newline, for tab\n\t
+
+
 		String word="u";
 		String str="uzun yoldan gelen uzun adamın dramını uzunca bir vakit izledik.";
 		Pattern pattern = Pattern.compile(word);
@@ -55,5 +69,7 @@ regex  examples
 			+ "(?<=~)(?<title>.*)"
 			+ "(?=\\])",
 			"[https://www.remzisahbaz.com~çalışma sayfası]"));// true -> 
-
+	System.out.println(Pattern.matches(
+	"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,24}$",
+			"Password1@@199++"));	// true -> 
 	
